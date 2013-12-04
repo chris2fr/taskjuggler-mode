@@ -1,8 +1,12 @@
-;;; taskjuggler-mode.el --- Editing Taskjuggler Files
+;;; taskjuggler-mode.el --- Editing TaskJuggler Files
 
 ;; Copyright (C) 2008 by Stefan Kamphausen
-;; Author: Stefan Kamphausen <http://www.skamphausen.de>
-;; Keywords: user
+;; Authors: Stefan Kamphausen <http://www.skamphausen.de>
+;;          Nicolas Girard <http://nicolasgirard.name>
+;; Homepage: http://www.skamphausen.de/cgi-bin/ska/taskjuggler-mode
+;; Keywords: mode taskjuggler tj3
+;; Last modified: 2008
+;; Version: 0.1
 ;; This file is not part of Emacs.
 
 ;; This program is free software; you can redistribute it and/or modify it
@@ -33,7 +37,6 @@
 ;; version.  In his code he praised Scott Andrew Borton for writing a
 ;; very good tutorial on writing modes.
 ;;
-;; Webpage: http://www.skamphausen.de/cgi-bin/ska/taskjuggler-mode
 
 ;;; FIXMEs
 ;; * The parser is called too often!
@@ -47,12 +50,15 @@
 ;; * Context-sensitive highlighting, e.g. columns in reports
 ;; * Ad-Hoc highlighting of things in buffer, e.g. task names,
 ;;   resource names.
-;; * Viewing of results, either using TaskjugglerUI or HTML-reports
+;; * Viewing of results, either using TaskJugglerUI or HTML-reports
 
 ;;; More Ideas
 ;; * Sorting of tasks in a context: by name, by priority
 ;; * Highlighting of priority according to value
 ;; * Validation of dependencies
+
+(defconst taskjuggler-mode-version "0.1"
+  "Version of `taskjuggler-mode.el'.")
 
 (defvar taskjuggler-mode-hook nil)
 
@@ -236,7 +242,7 @@ Used when completing resources.")
   "Indent current line as taskjuggler code.
 
 This function was taken from taskjug.el which shipped with 
-Taskjuggler 2.4.1.  Maybe it could be re-written to use
+TaskJuggler 2.4.1.  Maybe it could be re-written to use
 `taskjuggler-parser'."
   (interactive)
   (beginning-of-line)
