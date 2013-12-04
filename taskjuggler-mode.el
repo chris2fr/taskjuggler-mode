@@ -71,6 +71,11 @@
   (interactive)
   (customize-group 'taskjuggler))
 
+(defcustom taskjuggler-program "tj3"
+  "*Location of the TaskJuggler program. This is used by `compile'."
+  :type 'string
+  :group 'taskjuggler)
+
 (defconst taskjuggler-properties
   '("account"
     "copyright"
@@ -592,7 +597,7 @@ will be inserted.  Otherwise this function asks for the keyword to use
 
 ;; Compile
 (defun taskjuggler-build-compile-command (buffer &optional args)
-  (concat "taskjuggler "
+  (concat taskjuggler-program " "
           (cond 
            ((listp args) (mapconcat 'identity args " "))
            ((stringp args) args))
