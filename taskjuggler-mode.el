@@ -76,6 +76,11 @@
   :type 'string
   :group 'taskjuggler)
 
+(defcustom taskjuggler-indent-offset 4
+  "*Amount of offset per level of indentation."
+  :type 'integer
+  :group 'taskjuggler)
+
 (defconst taskjuggler-properties
   '("account"
     "copyright"
@@ -269,7 +274,7 @@ TaskJuggler 2.4.1.  Maybe it could be re-written to use
               (forward-line -1)
               (if (looking-at "^.*{")
                   (setq cur-indent (current-indentation)) ; Empty block, keep the same level
-                (setq cur-indent (- (current-indentation) tab-width))))
+                (setq cur-indent (- (current-indentation) taskjuggler-indent-offset))))
             (if (< cur-indent 0) ; We can't indent past the left margin
                 (setq cur-indent 0)))
         
@@ -283,7 +288,8 @@ TaskJuggler 2.4.1.  Maybe it could be re-written to use
               
               (if (looking-at "^.*{") ;This hint indicates that we need to indent an extra level
                   (progn
-                    (setq cur-indent (+ (current-indentation) tab-width)) ; Do the actual indenting
+                    (setq cur-indent 
+		      (+ (current-indentation) taskjuggler-indent-offset)) ; Do the actual indenting
                     (setq not-indented nil))
                 (if (bobp)
                     (setq not-indented nil)))))))
