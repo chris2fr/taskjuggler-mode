@@ -617,7 +617,7 @@ will be inserted.  Otherwise this function asks for the keyword to use
 
 (defun taskjuggler-check-syntax ()
   (interactive)
-  (let ((cmd (taskjuggler-build-compile-command (current-buffer) "-s")))
+  (let ((cmd (taskjuggler-build-compile-command (current-buffer) "--check-syntax")))
     (compile cmd)))
 
 ;; Map
