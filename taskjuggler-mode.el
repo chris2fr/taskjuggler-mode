@@ -62,6 +62,15 @@
 
 (defvar taskjuggler-mode-hook nil)
 
+(defgroup taskjuggler nil
+  "Major mode for editing TaskJuggler files"
+  :group 'tools)
+
+(defun taskjuggler-customize ()
+  "Run \\[customize-group] for the `taskjuggler' group."
+  (interactive)
+  (customize-group 'taskjuggler))
+
 (defconst taskjuggler-properties
   '("account"
     "copyright"
